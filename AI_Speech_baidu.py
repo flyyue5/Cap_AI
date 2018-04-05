@@ -13,8 +13,8 @@ def get_file_content(filePath):
         return fp.read()
 
 # 识别本地文件
-a = client.asr(get_file_content('16k.pcm'), 'pcm', 16000, {
-    'dev_pid': '1536',
+a = client.asr(get_file_content('test1.wav'), 'wav', 16000, {
+    'dev_pid': '1936',
 })
 
 # 从URL获取文件识别

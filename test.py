@@ -24,7 +24,7 @@ def get_file_content(filePath):
 
 class recoder:
     NUM_SAMPLES = 2000      #pyaudio内置缓冲大小
-    SAMPLING_RATE = 8000    #取样频率
+    SAMPLING_RATE = 16000    #取样频率
     LEVEL = 500         #声音保存的阈值
     COUNT_NUM = 20      #NUM_SAMPLES个取样之内出现COUNT_NUM个大于LEVEL的取样则记录声音
     SAVE_LENGTH = 8         #声音记录的最小长度：SAVE_LENGTH * NUM_SAMPLES 个取样
@@ -95,6 +95,9 @@ if __name__ == "__main__":
     r.recoder()
     r.savewav("test1.wav")
     a = client.asr(get_file_content('test1.wav'), 'wav', 16000, {
+        'dev_pid': '1536    ',
+    })
+    b = client.asr(get_file_content('16k.wav'), 'wav', 16000, {
         'dev_pid': '1536',
     })
 
@@ -105,3 +108,4 @@ if __name__ == "__main__":
 # })
 
 print(a)
+print(b)
